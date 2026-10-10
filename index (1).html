@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mr. Omar Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f1f;--card:rgba(255,255,255,.055);--bd:rgba(255,255,255,.11);--tx:#eef1ff;--mu:#9aa4c7;--a:#7c5cff;--b:#22d3ee;--ok:#22c55e;--no:#ef4444;--wa:#f59e0b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f2f4ff;--card:rgba(255,255,255,.9);--bd:rgba(20,20,60,.12);--tx:#14173a;--mu:#5b6389}}
+:root[data-theme="dark"]{--bg:#0a0f1f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;background-image:radial-gradient(700px 450px at 100% -5%,rgba(124,92,255,.33),transparent),radial-gradient(550px 420px at 0% 8%,rgba(34,211,238,.2),transparent);background-attachment:fixed}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:env(safe-area-inset-top,0px);backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 72%,transparent);border-bottom:1px solid var(--bd);z-index:5;flex-wrap:wrap;gap:8px}
+.logo{font-weight:800;font-size:19px;cursor:pointer;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+main{max-width:1080px;margin:0 auto;padding:22px 16px 60px}
+.btn{border:0;cursor:pointer;font-family:inherit;font-weight:600;color:#fff;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--b));transition:.2s;font-size:14px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(124,92,255,.4)}
+.btn.g{background:var(--card);border:1px solid var(--bd);color:var(--tx)}.btn.g.on{border-color:var(--a);background:rgba(124,92,255,.25)}
+.btn.ok{background:var(--ok)}.btn.no{background:var(--no)}.btn.wa{background:var(--wa)}.btn.sm{padding:6px 12px;font-size:12.5px}.btn:disabled{opacity:.5;cursor:default;transform:none;box-shadow:none}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:18px;backdrop-filter:blur(10px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.g2{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;align-items:start}
+@media(max-width:800px){.g2{grid-template-columns:1fr}}
+.course{cursor:pointer;transition:.25s;display:flex;flex-direction:column;gap:6px}
+.course:hover{transform:translateY(-5px);border-color:var(--a)}
+.ic{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-size:25px;background:linear-gradient(135deg,var(--a),var(--b))}
+h1{font-size:28px;margin:0 0 6px}h2{font-size:20px;margin:26px 0 12px}h3{margin:0 0 4px}
+.mu{color:var(--mu);font-size:14px}
+input,select,textarea{width:100%;padding:12px 14px;margin:6px 0 10px;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-family:inherit;font-size:15px;outline:none}
+select option{color:#000}textarea{min-height:90px;resize:vertical}
+input:focus,textarea:focus,select:focus{border-color:var(--a)}
+label{font-size:13px;color:var(--mu);font-weight:600}
+.auth{max-width:420px;margin:30px auto}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.tag{padding:3px 10px;border-radius:99px;font-size:12px;font-weight:700;display:inline-block}
+.t-p{background:rgba(245,158,11,.2);color:var(--wa)}.t-a{background:rgba(34,197,94,.2);color:var(--ok)}.t-r{background:rgba(239,68,68,.2);color:var(--no)}.t-i{background:rgba(124,92,255,.22);color:#a99bff}
+.chip{display:inline-flex;gap:6px;align-items:center;padding:6px 12px;border-radius:99px;background:var(--card);border:1px solid var(--bd);font-size:13px;margin:0 6px 6px 0}
+.old{text-decoration:line-through;color:var(--mu);margin-left:8px;font-size:15px}
+.price{font-size:32px;font-weight:800;color:var(--b)}
+.insta{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);border-radius:16px;padding:16px;text-align:center;color:#fff;margin:12px 0}
+.insta b{font-size:26px;letter-spacing:1px;display:block}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:640px}
+td,th{padding:10px;border-bottom:1px solid var(--bd);text-align:left;font-size:13.5px;vertical-align:middle}th{color:var(--mu);font-weight:600}
+.thumb{width:52px;height:52px;object-fit:cover;border-radius:10px;cursor:pointer}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:grid;place-items:center;z-index:20;padding:14px}
+.modal>div{background:var(--bg);border:1px solid var(--bd);border-radius:20px;padding:20px;width:100%;max-width:600px;max-height:92vh;overflow:auto}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--a);color:#fff;padding:10px 20px;border-radius:12px;z-index:50;font-weight:600}
+.hero{padding:28px;border-radius:24px;margin-bottom:22px;background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(34,211,238,.2));border:1px solid var(--bd)}
+.coupon{background:linear-gradient(90deg,#16a34a,#10b981);color:#fff;padding:12px 14px;border-radius:14px;margin:10px 0;font-weight:600;font-size:14px}
+.ticket{border:2px dashed var(--ok);border-radius:16px;padding:14px;background:rgba(34,197,94,.08)}
+.ticket b{font-size:20px;letter-spacing:2px;color:var(--ok)}
+.stat{text-align:center}.stat b{font-size:30px;display:block;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;overflow-x:auto}
+.desc{white-space:pre-line;line-height:1.7;color:var(--tx)}
+.steps{counter-reset:s;padding:0;list-style:none;margin:8px 0}.steps li{counter-increment:s;padding:6px 0 6px 34px;position:relative;font-size:14px}
+.steps li:before{content:counter(s);position:absolute;left:0;top:5px;width:24px;height:24px;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700}
+#pw{background:#000;border-radius:14px;overflow:hidden}
+.pl{position:relative;aspect-ratio:16/9;background:#000}.pl iframe{position:absolute;inset:0;width:100%;height:100%}
+.ov{position:absolute;inset:0;display:flex;touch-action:manipulation;-webkit-tap-highlight-color:transparent;z-index:3}.z{flex:1;cursor:pointer}
+.fl{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.65);color:#fff;padding:14px 20px;border-radius:40px;font-weight:700;font-size:18px;opacity:0;pointer-events:none;transition:opacity .2s}
+.fl.show{opacity:1}.fl.L{left:12%}.fl.R{right:12%}
+.ctl{display:flex;gap:10px;align-items:center;padding:10px 12px;background:#12162b;color:#fff}.ctl input[type=range]{margin:0;padding:0;flex:1;accent-color:var(--a)}.ctl select{width:auto;margin:0;padding:5px;background:#222744;color:#fff;border:0}.ctl .mu{color:#c9d0f5;font-size:12px;white-space:nowrap}
+.shield{position:absolute;inset:0;background:#000;display:none;place-items:center;text-align:center;z-index:6;color:#fff}
+.shield.on{display:grid}
+.shield .em{font-size:min(38vw,38vh);line-height:1}
+.wm{position:absolute;z-index:4;pointer-events:none;color:#fff;opacity:.28;font-weight:700;font-size:clamp(11px,2.2vw,16px);text-shadow:0 0 4px #000;transition:all 1.5s;white-space:nowrap}
+footer{text-align:center;padding:20px;color:var(--mu);font-size:12px}
+</style>
+</head>
+<body>
+<header><div class="logo" onclick="go('home')">🎓 Mr. Omar Academy</div><nav id="nav"></nav></header>
+<main id="app"></main>
+<footer>© Mr. Omar Academy · Online lessons made simple</footer>
+<script>
+const K='tp_db_v2';
+let DB;try{DB=JSON.parse(localStorage.getItem(K))}catch(e){}
+DB=DB||{};
+DB.users=DB.users||[];DB.courses=DB.courses||[];DB.orders=DB.orders||[];DB.access=DB.access||[];DB.coupons=DB.coupons||[];
+DB.settings=DB.settings||{insta:'01000000000',note:'Transfer the exact amount, then upload a clear screenshot of the receipt.',admin:'OMAR12'};
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(DB))}catch(e){toast('Storage full or blocked')}};
+
+/* ===== Device lock: each student account is bound to ONE device ===== */
+const DK='tp_dev_id';
+function rawId(){return Math.random().toString(36).slice(2,10)+Math.random().toString(36).slice(2,10)+Date.now().toString(36)}
+function getDevId(){
+  let a=null,b=null;
+  try{a=localStorage.getItem(DK)}catch(e){}
+  try{const m=document.cookie.match(/(?:^|;\s*)tp_dev=([\w-]+)/);b=m&&m[1]}catch(e){}
+  const id=a||b||rawId();
+  try{localStorage.setItem(DK,id)}catch(e){}
+  try{document.cookie='tp_dev='+id+';max-age=315360000;path=/;SameSite=Lax'}catch(e){}
+  return id;
+}
+const DEVID=getDevId();
+function devName(){
+  const u=navigator.userAgent||'';
+  const os=/iPhone/.test(u)?'iPhone':/iPad/.test(u)?'iPad':/Android/.test(u)?'Android':/Windows/.test(u)?'Windows':/Mac OS/.test(u)?'Mac':/Linux/.test(u)?'Linux':'Unknown';
+  const br=/Edg\//.test(u)?'Edge':/OPR\//.test(u)?'Opera':/SamsungBrowser/.test(u)?'Samsung Browser':/Chrome|CriOS/.test(u)?'Chrome':/Firefox|FxiOS/.test(u)?'Firefox':/Safari/.test(u)?'Safari':'Browser';
+  return os+' · '+br+' · '+screen.width+'×'+screen.height;
+}
+const devOK=u=>!u.dev||u.dev===DEVID;
+
+let YTP=null,tk=null,tapT=null,lastTap={t:0,s:''};
+let GD=[],wmT=null;
+let S={me:null,admin:false,page:'home',cid:null,lid:null,pay:false,f:'all',q:'',elid:null,eid:null};
+try{S.me=sessionStorage.getItem('me');S.admin=sessionStorage.getItem('adm')==='1'}catch(e){}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,10);
+const me=()=>DB.users.find(u=>u.id===S.me);
+const course=id=>DB.courses.find(c=>c.id===id);
+const lesson=(cid,lid)=>{const c=course(cid);return c&&{c,l:c.lessons.find(x=>x.id===lid)}};
+const user=id=>DB.users.find(u=>u.id===id);
+const fd=t=>new Date(t).toLocaleDateString('en-GB');
+const fdt=t=>new Date(t).toLocaleString('en-GB',{dateStyle:'short',timeStyle:'short'});
+const val=id=>($('#'+id)||{}).value||'';
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),3200)}
+function go(p,o){S.page=p;if(o)Object.assign(S,o);if(p==='admin')S.page=S.admin?'a_dash':'a_login';render();scrollTo(0,0)}
+function ytId(u){const m=String(u).match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/);return m&&m[1]}
+function modal(h){closeM();const d=document.createElement('div');d.className='modal';d.id='m';d.innerHTML='<div>'+h+'</div>';d.onclick=e=>{if(e.target===d)closeM()};document.body.appendChild(d)}
+function closeM(){clearInterval(tk);clearInterval(wmT);GD.forEach(f=>f());GD=[];if(YTP){try{YTP.destroy()}catch(e){}YTP=null}const m=$('#m');m&&m.remove()}
+function ask(msg,cb){window._cb=cb;modal(`<h3>${esc(msg)}</h3><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn g" onclick="closeM()">Cancel</button><button class="btn" onclick="closeM();_cb()">Confirm</button></div>`)}
+function askIn(msg,cb){window._cb=cb;modal(`<h3>${esc(msg)}</h3><input id="ai" type="text"><div class="row" style="justify-content:flex-end"><button class="btn g" onclick="closeM()">Cancel</button><button class="btn" onclick="const v=val('ai');closeM();_cb(v)">Save</button></div>`)}
+const access=lid=>DB.access.find(a=>a.uid===S.me&&a.lid===lid);
+const valid=a=>a&&a.views>0&&a.exp>Date.now();
+const myCoupon=cid=>DB.coupons.find(k=>k.uid===S.me&&k.cid===cid&&k.status==='active');
+const fin=(l,cp)=>cp?Math.round(l.price*(100-cp.pct)/100):l.price;
+const ST={pending:['t-p','Pending'],approved:['t-a','Approved'],rejected:['t-r','Rejected']};
+const stag=s=>`<span class="tag ${ST[s][0]}">${ST[s][1]}</span>`;
+const pubLessons=c=>c.lessons.filter(l=>!l.hidden);
+
+function render(){
+  const nav=$('#nav'),app=$('#app'),p=S.page;
+  if(p[0]==='a'&&p[1]==='_'){
+    nav.innerHTML=S.admin?'<button class="btn g sm" onclick="go(\'home\')">View site</button><button class="btn no sm" onclick="outA()">Logout</button>':'<button class="btn g sm" onclick="go(\'home\')">Back to site</button>';
+    return app.innerHTML=adminView();
+  }
+  /* kick out a logged-in student whose account is bound to another device */
+  if(me()&&!devOK(me())){S.me=null;try{sessionStorage.removeItem('me')}catch(e){}toast('This account is linked to another device');}
+  nav.innerHTML=me()?`<button class="btn g sm ${p==='home'?'on':''}" onclick="go('home')">Browse Courses</button><button class="btn g sm ${p==='my'?'on':''}" onclick="go('my')">My Courses</button><button class="btn no sm" onclick="outS()">Logout (${esc(me().name.split(' ')[0])})</button>`:'<button class="btn g sm" onclick="go(\'admin\')">🔐 Admin</button>';
+  if(!me())return app.innerHTML=authView();
+  app.innerHTML=p==='course'?courseView():p==='lesson'?lessonView():p==='my'?myView():homeView();
+}
+/* ================= STUDENT ================= */
+let mode='login';
+function authView(){
+  const l=mode==='login';
+  return `<div class="hero" style="text-align:center"><h1>Welcome to Mr. Omar Academy 👋</h1><div class="mu">Clear explanations · Online lessons · Real results</div></div>
+  <div class="card auth"><h2 style="margin-top:0">${l?'Login':'Create Account'}</h2>
+  ${l?'':'<label>Full name</label><input id="n" placeholder="Your name">'}
+  <label>Username</label><input id="un" autocapitalize="off" placeholder="e.g. ahmed123">
+  <label>Password</label><input id="pass" type="password" placeholder="••••••">
+  <button class="btn" style="width:100%" onclick="${l?'login()':'reg()'}">${l?'Login':'Create Account'}</button>
+  ${l?'':'<p class="mu" style="font-size:12.5px;text-align:center;margin:10px 0 0">📱 Your account will be locked to this device only.</p>'}
+  <p class="mu" style="text-align:center;cursor:pointer" onclick="mode='${l?'reg':'login'}';render()">${l?"Don't have an account? Sign up":'Already have an account? Login'}</p></div>`;
+}
+function reg(){
+  const n=val('n').trim(),un=val('un').trim().toLowerCase(),pw=val('pass');
+  if(!n||un.length<3||pw.length<4)return toast('Fill all fields (username 3+, password 4+)');
+  if(DB.users.some(u=>u.un===un))return toast('Username already taken');
+  const u={id:uid(),name:n,un,pw,banned:false,date:Date.now(),dev:DEVID,devName:devName(),devDate:Date.now()};DB.users.push(u);save();setMe(u.id);toast('Account created ✅');
+}
+function login(){
+  const un=val('un').trim().toLowerCase(),u=DB.users.find(u=>u.un===un&&u.pw===val('pass'));
+  if(!u)return toast('Wrong username or password');
+  if(u.banned)return toast('This account is suspended');
+  if(u.dev&&u.dev!==DEVID)return toast('🔒 This account is linked to another device. Contact the admin to reset it.');
+  if(!u.dev){u.dev=DEVID;u.devName=devName();u.devDate=Date.now();} /* old accounts bind on next login */
+  u.lastLogin=Date.now();save();
+  setMe(u.id);
+}
+function setMe(id){S.me=id;try{sessionStorage.setItem('me',id)}catch(e){}go('home')}
+function outS(){S.me=null;try{sessionStorage.removeItem('me')}catch(e){}go('home')}
+const cardGrid=()=>{
+  const q=S.q.toLowerCase(),cs=DB.courses.filter(c=>!c.hidden&&c.name.toLowerCase().includes(q));
+  return cs.map(c=>{const cp=myCoupon(c.id);return `<div class="card course" onclick="go('course',{cid:'${c.id}'})"><div class="ic">${esc(c.icon||'📘')}</div><h3 style="margin-top:8px">${esc(c.name)}</h3><div class="mu" style="min-height:40px">${esc((c.desc||'').slice(0,90))}</div>
+  <div><span class="chip">📚 ${pubLessons(c).length} lessons</span>${cp?`<span class="tag t-a">🎁 Your coupon −${cp.pct}%</span>`:c.pct>0?`<span class="tag t-i">Repeat buyers −${c.pct}%</span>`:''}</div></div>`}).join('')||'<p class="mu">No courses found.</p>';
+};
+function homeView(){
+  return `<div class="hero"><h1>Hi ${esc(me().name)} 👋</h1><div class="mu">Pick a course and start learning today.</div></div>
+  <div class="row"><h2 style="margin:0">Available Courses</h2><input style="max-width:260px;margin:0" placeholder="🔎 Search courses" value="${esc(S.q)}" oninput="S.q=this.value;$('#cg').innerHTML=cardGrid()"></div>
+  <div class="grid" id="cg" style="margin-top:14px">${cardGrid()}</div>`;
+}
+function courseView(){
+  const c=course(S.cid);if(!c)return homeView();const cp=myCoupon(c.id);
+  return `<button class="btn g sm" onclick="go('home')">← All courses</button>
+  <div class="hero" style="margin-top:14px"><div class="ic" style="margin-bottom:10px">${esc(c.icon||'📘')}</div><h1>${esc(c.name)}</h1><div class="desc mu">${esc(c.desc)}</div></div>
+  ${cp?`<div class="coupon">🎁 You have a personal ${cp.pct}% coupon for this course — it will be applied automatically on your next purchase.</div>`:c.pct>0?`<div class="coupon" style="background:linear-gradient(90deg,var(--a),var(--b))">💡 Buy any lesson here and get a personal ${c.pct}% coupon for your next purchase in this course.</div>`:''}
+  <h2>Lessons</h2>
+  ${pubLessons(c).map((l,i)=>{const a=access(l.id);return `<div class="card row" style="margin-bottom:12px"><div style="flex:1;min-width:220px"><div class="mu">Lesson ${i+1}</div><h3>${esc(l.title)}</h3>
+  <span class="chip">👁 ${l.views} views</span><span class="chip">📅 ${l.days} days</span>${l.dur?`<span class="chip">⏱ ${esc(l.dur)}</span>`:''}${valid(a)?'<span class="tag t-a">Unlocked</span>':''}</div>
+  <div style="text-align:right"><span class="price" style="font-size:24px">${fin(l,cp)} EGP</span>${fin(l,cp)<l.price?`<span class="old">${l.price}</span>`:l.old>l.price?`<span class="old">${l.old}</span>`:''}<br><button class="btn sm" style="margin-top:6px" onclick="go('lesson',{cid:'${c.id}',lid:'${l.id}',pay:false})">View details</button></div></div>`}).join('')||'<p class="mu">No lessons yet.</p>'}`;
+}
+function lessonView(){
+  const x=lesson(S.cid,S.lid);if(!x||!x.l)return homeView();
+  const {c,l}=x,a=access(l.id),cp=myCoupon(c.id),f=fin(l,cp),pend=DB.orders.some(o=>o.uid===S.me&&o.lid===l.id&&o.status==='pending');
+  const save_=l.old>f?Math.round((l.old-f)/l.old*100):0;
+  return `<button class="btn g sm" onclick="go('course')">← ${esc(c.name)}</button>
+  <div class="g2" style="margin-top:14px"><div>
+    <div class="card"><div class="mu">${esc(c.name)}</div><h1>${esc(l.title)}</h1>
+    <span class="chip">👁 Watch up to <b>${l.views}</b> times</span><span class="chip">📅 Valid for <b>${l.days}</b> days</span>${l.dur?`<span class="chip">⏱ ${esc(l.dur)}</span>`:''}
+    <h3 style="margin-top:14px">About this lesson</h3><div class="desc">${esc(l.desc)||'No description provided.'}</div></div>
+    <div class="card" style="margin-top:14px"><h3>What you get</h3><ul class="steps" style="counter-reset:none"><li style="padding-left:0">✅ Full HD video lesson</li><li style="padding-left:0">✅ ${l.views} views within ${l.days} days from approval</li><li style="padding-left:0">✅ Re-buy anytime to add more views &amp; days on top of what's left</li>${c.pct>0?`<li style="padding-left:0">🎁 Personal ${c.pct}% coupon after your first purchase in this course</li>`:''}</ul></div>
+  </div>
+  <div class="card" style="position:sticky;top:80px">
+    <div><span class="price">${f} EGP</span>${l.old>f?`<span class="old">${l.old}</span>`:''}</div>
+    ${save_?`<span class="tag t-a">Save ${save_}%</span>`:''}
+    ${cp?`<div class="coupon">🎁 Your ${cp.pct}% coupon applied</div>`:''}
+    ${valid(a)?`<div class="ticket" style="margin:10px 0"><div class="mu">You own this lesson</div><b style="font-size:16px;letter-spacing:0">${a.views} views left</b><div class="mu">Expires ${fd(a.exp)}</div><button class="btn ok sm" style="margin-top:8px" onclick="watch('${l.id}')">▶ Watch now</button></div>`:''}
+    ${pend?'<div class="coupon" style="background:var(--wa)">⏳ Your payment is under review</div>':''}
+    ${S.pay?payBox(c,l,cp,f):`<button class="btn" style="width:100%;margin-top:10px;padding:14px;font-size:16px" onclick="S.pay=true;render()">${valid(a)?'Buy again (extend)':'Pay Now'}</button>`}
+  </div></div>`;
+}
+function payBox(c,l,cp,f){
+  return `<hr style="border:0;border-top:1px solid var(--bd);margin:14px 0"><ul class="steps"><li>Send <b>${f} EGP</b> via InstaPay to:</li></ul>
+  <div class="insta">InstaPay<b>${esc(DB.settings.insta)}</b><button class="btn sm" style="margin-top:8px;background:rgba(255,255,255,.25)" onclick="try{navigator.clipboard.writeText('${esc(DB.settings.insta)}')}catch(e){};toast('Number copied')">Copy number</button></div>
+  <ul class="steps" start="2"><li style="counter-increment:s 1">${esc(DB.settings.note)}</li><li>Upload the transfer screenshot below</li></ul>
+  <label>Transfer screenshot</label><input type="file" id="img" accept="image/*" onchange="pickImg(this)"><img id="prev" style="max-width:100%;border-radius:12px;display:none;margin-bottom:10px">
+  <button class="btn ok" style="width:100%" onclick="sendOrder('${c.id}','${l.id}',${f},'${cp?cp.id:''}')">Submit payment ✔</button>
+  <button class="btn g" style="width:100%;margin-top:8px" onclick="S.pay=false;render()">Cancel</button>`;
+}
+function pickImg(i){shrink(i.files[0],d=>{window._img=d;const p=$('#prev');p.src=d;p.style.display='block'})}
+function shrink(f,cb){
+  if(!f)return;const r=new FileReader();
+  r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,700/i.width),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;c.getContext('2d').drawImage(i,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.6))};i.src=r.result};
+  r.readAsDataURL(f);
+}
+function sendOrder(cid,lid,amount,cpn){
+  if(!window._img)return toast('Please upload the transfer screenshot');
+  const cp=cpn&&DB.coupons.find(k=>k.id===cpn&&k.status==='active');
+  DB.orders.push({id:uid(),uid:S.me,cid,lid,amount,cpn:cp?cp.id:null,img:window._img,status:'pending',date:Date.now()});
+  if(cp)cp.status='held';
+  window._img=null;S.pay=false;save();toast('Sent! Waiting for admin approval ⏳');go('my');
+}
+function myView(){
+  const my=DB.orders.filter(o=>o.uid===S.me).sort((a,b)=>b.date-a.date),acc=DB.access.filter(a=>a.uid===S.me),cps=DB.coupons.filter(k=>k.uid===S.me);
+  return `<h1>My Courses</h1>
+  <div class="grid">${acc.map(a=>{const x=lesson(a.cid,a.lid);if(!x||!x.l)return '';const v=valid(a);
+  return `<div class="card"><span class="tag t-i">${esc(x.c.name)}</span><h3 style="margin-top:8px">${esc(x.l.title)}</h3>
+  <div class="mu" style="margin:6px 0 12px">${v?`${a.views} views left · expires ${fd(a.exp)}`:a.views<=0?'No views left':'Expired '+fd(a.exp)}</div>
+  <button class="btn ok sm" ${v?'':'disabled'} onclick="watch('${a.lid}')">▶ Watch</button> <button class="btn g sm" onclick="go('lesson',{cid:'${a.cid}',lid:'${a.lid}',pay:false})">${v?'Extend':'Renew'}</button></div>`}).join('')||'<p class="mu">Nothing unlocked yet. Buy a lesson and it will appear here after approval.</p>'}</div>
+  <h2>🎁 My Coupons</h2>
+  <div class="grid">${cps.map(k=>{const c=course(k.cid);return `<div class="ticket"><div class="mu">${esc(c?c.name:'Course')}</div><b>${esc(k.code)}</b><div style="margin:6px 0">${k.pct}% off your next purchase</div>${k.status==='active'?'<span class="tag t-a">Active — auto applied</span>':k.status==='held'?'<span class="tag t-p">Reserved on pending order</span>':'<span class="tag t-r">Used</span>'}</div>`}).join('')||'<p class="mu">Coupons appear here after your first approved purchase in a course that offers one.</p>'}</div>
+  <h2>My Orders</h2>
+  ${my.map(o=>{const x=lesson(o.cid,o.lid);return `<div class="card row" style="margin-bottom:8px"><span>${esc(x&&x.l?x.l.title:'Deleted lesson')} · <b>${o.amount} EGP</b>${o.cpn?' · 🎁 coupon used':''}<span class="mu"> · ${fd(o.date)}</span></span>${stag(o.status)}</div>`}).join('')||'<p class="mu">No orders yet.</p>'}`;
+}
+function watch(lid){
+  if(me()&&!devOK(me()))return render();
+  if(!valid(access(lid)))return toast('Access expired');
+  ask('Starting the video uses 1 of your views, even if you leave early. Continue?',()=>startPlay(lid));
+}
+function loadYT(cb){
+  let d=false;const fin=ok=>{if(!d){d=true;cb(ok)}};
+  if(window.YT&&YT.Player)return fin(true);
+  window.onYouTubeIframeAPIReady=()=>fin(true);
+  const sc=document.createElement('script');sc.src='https://www.youtube.com/iframe_api';sc.onerror=()=>fin(false);document.head.appendChild(sc);
+  setTimeout(()=>fin(!!(window.YT&&YT.Player)),7000);
+}
+
+/* ===== Anti-recording guard ===== */
+function guardOn(){
+  const hide=()=>{try{if(YTP){YTP.pauseVideo();YTP.mute()}}catch(e){}const s=$('#sh');if(s){$('#sem').textContent=['🚫','📵','🙈'][Math.floor(Math.random()*3)];s.classList.add('on')}};
+  const add=(t,ev,f)=>{t.addEventListener(ev,f);GD.push(()=>t.removeEventListener(ev,f))};
+  add(document,'visibilitychange',()=>{if(document.hidden)hide()});
+  add(window,'blur',hide);
+  add(window,'pagehide',hide);
+  add(document,'keyup',e=>{if(e.key==='PrintScreen'){try{navigator.clipboard.writeText('')}catch(_){}hide()}});
+  add(document,'keydown',e=>{const k=(e.key||'').toLowerCase();if((e.metaKey&&e.shiftKey)||(e.ctrlKey&&['p','s','u'].includes(k))||e.key==='F12')hide()});
+  add(document,'contextmenu',e=>e.preventDefault());
+}
+function resumeP(){
+  if(!document.hasFocus())return toast('ارجع للصفحة الأول');
+  $('#sh').classList.remove('on');try{YTP.unMute();YTP.playVideo()}catch(e){}
+}
+function moveWM(){const w=$('#wm');if(!w)return;w.style.top=(8+Math.random()*80)+'%';w.style.left=(2+Math.random()*60)+'%'}
+
+function startPlay(lid){
+  const a=access(lid);if(!valid(a))return;
+  const x=lesson(a.cid,lid),id=ytId(x.l.url),u=me();
+  modal(`<div class="row"><h3 style="margin:0">${esc(x.l.title)}</h3><button class="btn g sm" onclick="closeM();render()">✕ Close</button></div>
+  <p class="mu" style="margin:6px 0 10px"><span id="vl">${a.views}</span> views left · Double-tap left/right = ±10s · Tap = pause/play</p>
+  <div id="pw"><div class="pl"><div id="ytp"></div>
+  <div class="ov"><div class="z" onclick="tap('l')"></div><div class="z" onclick="tap('r')"></div><div class="fl" id="fl"></div></div>
+  <div class="wm" id="wm">${esc(u.name)} · @${esc(u.un)}</div>
+  <div class="shield" id="sh"><div><div class="em" id="sem">🚫</div><p>التسجيل أو مغادرة الصفحة ممنوع</p><button class="btn" onclick="resumeP()">▶ كمّل المشاهدة</button></div></div></div>
+  <div class="ctl"><button class="btn sm" id="pp" onclick="ptoggle()">▶</button><input type="range" id="sk" min="0" max="1000" value="0" oninput="pseek(this.value)"><span class="mu" id="tm">0:00</span>
+  <select onchange="YTP&&YTP.setPlaybackRate(+this.value)"><option value="0.75">0.75x</option><option value="1" selected>1x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option><option value="2">2x</option></select><button class="btn sm" onclick="pfs()">⛶</button></div></div>`);
+  $('#m>div').style.maxWidth='920px';
+  if(!id)return failP();
+  const to=setTimeout(()=>failP(),15000);
+  loadYT(ok=>{
+    if(!ok||!$('#ytp'))return ok?0:(clearTimeout(to),failP());
+    YTP=new YT.Player('ytp',{videoId:id,host:'https://www.youtube-nocookie.com',
+      playerVars:{controls:0,disablekb:1,modestbranding:1,rel:0,playsinline:1,fs:0,iv_load_policy:3,origin:location.origin},
+      events:{
+        onReady:()=>{clearTimeout(to);a.views--;save();const v=$('#vl');if(v)v.textContent=a.views;try{YTP.playVideo()}catch(e){}},
+        onStateChange:e=>{const b=$('#pp');if(b)b.textContent=e.data===1?'⏸':'▶'},
+        onError:()=>{clearTimeout(to);failP()}}});
+    tk=setInterval(upd,500);wmT=setInterval(moveWM,4000);guardOn();
+  });
+}
+function failP(){const w=$('#pw');if(w)w.innerHTML='<div style="padding:24px;background:var(--card);color:var(--tx)">⚠️ تعذر تحميل الفيديو. تأكد من اتصالك بالإنترنت وجرب تاني، ولو المشكلة مستمرة كلم المدرس. (لم يتم خصم مشاهدة)</div>'}
+const fmt=t=>{t=Math.floor(t||0);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+function upd(){if(!YTP||!YTP.getDuration)return;const d=YTP.getDuration(),c=YTP.getCurrentTime();if(d>0){const k=$('#sk');if(k&&document.activeElement!==k)k.value=c/d*1000;$('#tm').textContent=fmt(c)+' / '+fmt(d)}}
+function ptoggle(){if(!YTP||!YTP.getPlayerState)return;YTP.getPlayerState()===1?YTP.pauseVideo():YTP.playVideo()}
+function pseek(v){if(YTP&&YTP.getDuration)YTP.seekTo(v/1000*YTP.getDuration(),true)}
+function pfs(){try{const e=$('#pw');(e.requestFullscreen||e.webkitRequestFullscreen).call(e)}catch(e){toast('Fullscreen not available')}}
+function tap(side){
+  const n=Date.now();clearTimeout(tapT);
+  if(lastTap.s===side&&n-lastTap.t<320){lastTap={t:0,s:''};return skip(side==='l'?-10:10)}
+  lastTap={t:n,s:side};tapT=setTimeout(ptoggle,320);
+}
+function skip(d){
+  if(!YTP||!YTP.seekTo)return;YTP.seekTo(Math.max(0,YTP.getCurrentTime()+d),true);
+  const f=$('#fl');f.textContent=d<0?'⏪ 10s':'10s ⏩';f.className='fl show '+(d<0?'L':'R');setTimeout(()=>f&&(f.className='fl'),600);
+}
+/* ================= ADMIN ================= */
+function outA(){S.admin=false;try{sessionStorage.removeItem('adm')}catch(e){}go('home')}
+const TABS=[['a_dash','📊 Dashboard'],['a_courses','📚 Courses'],['a_cform','➕ Add Course'],['a_orders','💳 Orders'],['a_students','👥 Students'],['a_coupons','🎁 Coupons'],['a_settings','⚙️ Settings']];
+function tabs(){const pend=DB.orders.filter(o=>o.status==='pending').length;return `<div class="tabs">${TABS.map(t=>`<button class="btn g sm ${S.page===t[0]||(S.page==='a_course'&&t[0]==='a_courses')?'on':''}" onclick="go('${t[0]}',{eid:null})">${t[1]}${t[0]==='a_orders'&&pend?` (${pend})`:''}</button>`).join('')}</div>`}
+function adminView(){
+  const p=S.page;
+  if(!S.admin)return `<div class="card auth"><h2 style="margin-top:0">🔐 Admin Login</h2><label>Username</label><input id="au" autocapitalize="off"><label>Password</label><input id="ap" type="password"><button class="btn" style="width:100%" onclick="alogin()">Login</button></div>`;
+  return tabs()+({a_dash,a_courses,a_cform,a_course,a_orders,a_students,a_coupons,a_settings}[p]||a_dash)();
+}
+function alogin(){
+  if(val('au').trim().toUpperCase()==='OMAR1'&&val('ap').trim()===DB.settings.admin){S.admin=true;try{sessionStorage.setItem('adm','1')}catch(e){}go('a_dash')}else toast('Wrong admin credentials');
+}
+function a_dash(){
+  const ap=DB.orders.filter(o=>o.status==='approved'),pend=DB.orders.filter(o=>o.status==='pending'),rev=ap.reduce((s,o)=>s+o.amount,0);
+  const st=[['Students',DB.users.length],['Courses',DB.courses.length],['Lessons',DB.courses.reduce((s,c)=>s+c.lessons.length,0)],['Pending orders',pend.length],['Approved orders',ap.length],['Revenue (EGP)',rev]];
+  return `<div class="hero"><h1>Welcome back, OMAR1 👋</h1><div class="mu">Here's what's happening on your academy.</div></div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">${st.map(s=>`<div class="card stat"><b>${s[1]}</b><span class="mu">${s[0]}</span></div>`).join('')}</div>
+  <h2>Latest pending orders</h2>${pend.length?ordersTable(pend.slice(-5).reverse()):'<p class="mu">No pending orders 🎉</p>'}
+  <h2>Quick actions</h2><div class="row" style="justify-content:flex-start"><button class="btn" onclick="go('a_cform',{eid:null})">➕ Add course</button><button class="btn g" onclick="go('a_orders')">Review orders</button><button class="btn g" onclick="go('a_settings')">Settings</button></div>`;
+}
+function a_courses(){
+  return `<div class="row"><h1>Courses</h1><button class="btn" onclick="go('a_cform',{eid:null})">➕ Add Course</button></div>
+  <div class="grid">${DB.courses.map(c=>`<div class="card"><div class="row"><div class="ic">${esc(c.icon||'📘')}</div>${c.hidden?'<span class="tag t-r">Hidden</span>':'<span class="tag t-a">Live</span>'}</div><h3 style="margin-top:10px">${esc(c.name)}</h3>
+  <div class="mu">${c.lessons.length} lessons · repeat-buyer coupon: ${c.pct>0?c.pct+'%':'off'}</div>
+  <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm" onclick="go('a_course',{cid:'${c.id}',elid:null})">Open</button><button class="btn g sm" onclick="go('a_cform',{eid:'${c.id}'})">Edit</button><button class="btn wa sm" onclick="togC('${c.id}')">${c.hidden?'Show':'Hide'}</button><button class="btn no sm" onclick="delC('${c.id}')">Delete</button></div></div>`).join('')||'<p class="mu">No courses yet. Click “Add Course”.</p>'}</div>`;
+}
+function a_cform(){
+  const c=S.eid?course(S.eid):null,ic=['📘','📐','🧪','🔬','📖','🌍','💻','🎨','🧮','⚡'];
+  return `<div class="card auth" style="max-width:560px"><h2 style="margin-top:0">${c?'Edit Course':'Add Course'}</h2>
+  <label>Course name</label><input id="cn" placeholder="e.g. math1" value="${esc(c?c.name:'')}">
+  <label>Icon</label><select id="ci">${ic.map(i=>`<option ${c&&c.icon===i?'selected':''}>${i}</option>`).join('')}</select>
+  <label>Description (shown to students)</label><textarea id="cd">${esc(c?c.desc:'')}</textarea>
+  <label>Repeat-buyer discount % (a student who buys from this course gets a personal coupon for their next purchase; 0 = no coupon)</label><input id="cp" type="number" min="0" max="100" value="${c?c.pct:10}">
+  <button class="btn" style="width:100%" onclick="saveC()">${c?'Save changes':'Create course'}</button></div>`;
+}
+function saveC(){
+  const n=val('cn').trim();if(!n)return toast('Enter a course name');
+  const d={name:n,icon:val('ci'),desc:val('cd').trim(),pct:Math.max(0,Math.min(100,+val('cp')||0))};
+  const isNew=!S.eid;
+  if(S.eid)Object.assign(course(S.eid),d);else{const c={id:uid(),lessons:[],hidden:false,...d};DB.courses.push(c);S.cid=c.id}
+  save();toast('Saved ✅');S.eid=null;go(isNew?'a_course':'a_courses',{elid:null});
+}
+function togC(id){const c=course(id);c.hidden=!c.hidden;save();render()}
+function delC(id){ask('Delete this course and all its lessons?',()=>{DB.courses=DB.courses.filter(c=>c.id!==id);DB.access=DB.access.filter(a=>a.cid!==id);DB.coupons=DB.coupons.filter(k=>k.cid!==id);save();render()})}
+function a_course(){
+  const c=course(S.cid);if(!c)return a_courses();
+  const e=S.elid&&S.elid!=='new'?c.lessons.find(l=>l.id===S.elid):null;
+  return `<button class="btn g sm" onclick="go('a_courses')">← Courses</button><h1 style="margin-top:12px">${esc(c.icon||'')} ${esc(c.name)}</h1>
+  <div class="mu">Repeat-buyer coupon: ${c.pct>0?c.pct+'%':'off'} · <a href="#" style="color:var(--b)" onclick="go('a_cform',{eid:'${c.id}'});return false">edit course</a></div>
+  ${S.elid?`<div class="card" style="margin-top:14px"><h3>${e?'Edit lesson':'New lesson'}</h3>
+  <label>Lesson title</label><input id="lt" value="${esc(e?e.title:'')}" placeholder="e.g. Lesson 1: Fractions">
+  <label>YouTube link</label><input id="lu" value="${esc(e?e.url:'')}" placeholder="https://youtu.be/...">
+  <label>Description (what the student will learn)</label><textarea id="ld">${esc(e?e.desc:'')}</textarea>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px"><div><label>Price before discount</label><input id="lo" type="number" value="${e?e.old:''}"></div><div><label>Current price</label><input id="lp" type="number" value="${e?e.price:''}"></div><div><label>Allowed views</label><input id="lv" type="number" value="${e?e.views:3}"></div><div><label>Valid days</label><input id="ldy" type="number" value="${e?e.days:30}"></div><div><label>Duration (optional)</label><input id="ldu" value="${esc(e?e.dur:'')}" placeholder="45 min"></div></div>
+  <div class="row" style="justify-content:flex-start"><button class="btn" onclick="saveL()">Save lesson</button><button class="btn g" onclick="S.elid=null;render()">Cancel</button></div></div>`
+  :`<button class="btn" style="margin-top:14px" onclick="S.elid='new';render()">➕ Add Lesson</button>`}
+  <h2>Lessons (${c.lessons.length})</h2>
+  ${c.lessons.map((l,i)=>`<div class="card row" style="margin-bottom:10px"><div style="flex:1;min-width:200px"><h3>${i+1}. ${esc(l.title)} ${l.hidden?'<span class="tag t-r">Hidden</span>':''}</h3><span class="chip">💰 ${l.price} EGP <s class="mu">${l.old}</s></span><span class="chip">👁 ${l.views}</span><span class="chip">📅 ${l.days}d</span></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn g sm" onclick="S.elid='${l.id}';render();scrollTo(0,0)">Edit</button><button class="btn wa sm" onclick="togL('${l.id}')">${l.hidden?'Show':'Hide'}</button><button class="btn no sm" onclick="delL('${l.id}')">Delete</button></div></div>`).join('')||'<p class="mu">No lessons yet.</p>'}`;
+}
+function saveL(){
+  const c=course(S.cid),t=val('lt').trim(),u=val('lu').trim(),p=+val('lp'),o=+val('lo'),v=+val('lv'),d=+val('ldy');
+  if(!t||!ytId(u))return toast('Enter a title and a valid YouTube link');
+  if(!p||!v||!d)return toast('Fill price, views and days');
+  const data={title:t,url:u,desc:val('ld').trim(),old:o||p,price:p,views:v,days:d,dur:val('ldu').trim()};
+  if(S.elid==='new')c.lessons.push({id:uid(),hidden:false,...data});else Object.assign(c.lessons.find(l=>l.id===S.elid),data);
+  S.elid=null;save();toast('Lesson saved ✅');render();
+}
+function togL(id){const l=course(S.cid).lessons.find(x=>x.id===id);l.hidden=!l.hidden;save();render()}
+function delL(id){ask('Delete this lesson?',()=>{const c=course(S.cid);c.lessons=c.lessons.filter(l=>l.id!==id);DB.access=DB.access.filter(a=>a.lid!==id);save();render()})}
+function ordersTable(os){
+  return `<div class="card tw"><table><tr><th>Student</th><th>Course / Lesson</th><th>Amount</th><th>Receipt</th><th>Date</th><th>Status</th><th></th></tr>${os.map(o=>{const u=user(o.uid),x=lesson(o.cid,o.lid);
+  return `<tr><td><b>${esc(u?u.name:'?')}</b><br><span class="mu">@${esc(u?u.un:'')}</span></td><td>${esc(x?x.c.name:'')}<br><span class="mu">${esc(x&&x.l?x.l.title:'deleted')}</span></td><td>${o.amount} EGP${o.cpn?'<br><span class="tag t-a">coupon</span>':''}</td>
+  <td><img class="thumb" src="${o.img}" onclick="showImg('${o.id}')"></td><td>${fd(o.date)}</td><td>${stag(o.status)}</td>
+  <td>${o.status==='pending'?`<button class="btn ok sm" onclick="decide('${o.id}',1)">✔ Approve</button> <button class="btn no sm" onclick="decide('${o.id}',0)">✖ Reject</button>`:''}</td></tr>`}).join('')}</table></div>`;
+}
+function showImg(id){const o=DB.orders.find(x=>x.id===id);modal(`<img src="${o.img}" style="width:100%;border-radius:12px"><button class="btn g" style="width:100%;margin-top:10px" onclick="closeM()">Close</button>`)}
+function a_orders(){
+  const q=S.q.toLowerCase(),os=DB.orders.filter(o=>(S.f==='all'||o.status===S.f)&&(!q||((user(o.uid)||{}).name||'').toLowerCase().includes(q)||((user(o.uid)||{}).un||'').includes(q))).sort((a,b)=>b.date-a.date);
+  return `<h1>Orders</h1><div class="row"><div class="tabs" style="margin:0">${['all','pending','approved','rejected'].map(f=>`<button class="btn g sm ${S.f===f?'on':''}" onclick="S.f='${f}';render()">${f[0].toUpperCase()+f.slice(1)} (${f==='all'?DB.orders.length:DB.orders.filter(o=>o.status===f).length})</button>`).join('')}</div>
+  <input style="max-width:240px;margin:0" placeholder="🔎 Search student" value="${esc(S.q)}" onchange="S.q=this.value;render()"></div><div style="margin-top:14px">${os.length?ordersTable(os):'<p class="mu">No orders match.</p>'}</div>`;
+}
+function decide(id,ok){
+  const o=DB.orders.find(x=>x.id===id);if(!o||o.status!=='pending')return;
+  const cp=o.cpn&&DB.coupons.find(k=>k.id===o.cpn);
+  if(!ok){o.status='rejected';if(cp)cp.status='active';save();return render()}
+  const x=lesson(o.cid,o.lid);
+  if(x&&x.l){
+    let a=DB.access.find(z=>z.uid===o.uid&&z.lid===o.lid);const add=x.l.days*864e5;
+    if(a){a.views+=x.l.views;a.exp=Math.max(a.exp,Date.now())+add}else DB.access.push({uid:o.uid,cid:o.cid,lid:o.lid,views:x.l.views,exp:Date.now()+add});
+    if(cp)cp.status='used';
+    if(x.c.pct>0&&!DB.coupons.some(k=>k.uid===o.uid&&k.cid===o.cid))DB.coupons.push({id:uid(),uid:o.uid,cid:o.cid,code:'OMR-'+uid().slice(0,6).toUpperCase(),pct:x.c.pct,status:'active'});
+  }
+  o.status='approved';save();toast('Approved ✅ — lesson unlocked');render();
+}
+function a_students(){
+  const same=u=>u.dev&&u.dev===DEVID;
+  return `<h1>Students (${DB.users.length})</h1><p class="mu">Each student account is locked to the first device it was created/logged in from. Use “Reset device” to let a student switch to a new device.</p>
+  <div class="card tw"><table style="min-width:900px"><tr><th>Name</th><th>Username</th><th>Joined</th><th>Purchases</th><th>Spent</th><th>Device</th><th>Status</th><th>Actions</th></tr>${DB.users.map(u=>{const os=DB.orders.filter(o=>o.uid===u.id&&o.status==='approved');
+  const dv=u.dev?`<span class="tag t-i">🔒 Locked</span><br><span style="font-size:12.5px">${esc(u.devName||'Unknown device')}</span><br><span class="mu" style="font-size:11.5px">ID: ${esc(u.dev.slice(0,8))}${same(u)?' (this device)':''}</span><br><span class="mu" style="font-size:11.5px">since ${u.devDate?fdt(u.devDate):'-'}</span>`:'<span class="tag t-p">Not linked yet</span><br><span class="mu" style="font-size:11.5px">links on next login</span>';
+  return `<tr><td><b>${esc(u.name)}</b></td><td>@${esc(u.un)}</td><td>${u.date?fd(u.date):'-'}</td><td>${os.length}</td><td>${os.reduce((s,o)=>s+o.amount,0)} EGP</td><td>${dv}</td><td>${u.banned?'<span class="tag t-r">Suspended</span>':'<span class="tag t-a">Active</span>'}</td>
+  <td style="white-space:nowrap"><button class="btn g sm" onclick="resetDev('${u.id}')" ${u.dev?'':'disabled'}>Reset device</button> <button class="btn g sm" onclick="resetPw('${u.id}')">Reset pass</button> <button class="btn wa sm" onclick="ban('${u.id}')">${u.banned?'Unsuspend':'Suspend'}</button> <button class="btn no sm" onclick="delU('${u.id}')">Delete</button></td></tr>`}).join('')||'<tr><td colspan="8" class="mu">No students yet.</td></tr>'}</table></div>`;
+}
+function resetDev(id){ask('Unlink this student from their device? The next login will lock the account to the new device.',()=>{const u=user(id);if(!u)return;u.dev=null;u.devName=null;u.devDate=null;save();toast('Device reset ✅');render()})}
+function resetPw(id){askIn('New password for this student (4+ chars):',p=>{if(p&&p.length>=4){user(id).pw=p;save();toast('Password updated ✅')}else toast('Too short')})}
+function ban(id){const u=user(id);u.banned=!u.banned;save();render()}
+function delU(id){ask('Delete this student and all their data?',()=>{DB.users=DB.users.filter(u=>u.id!==id);['orders','access','coupons'].forEach(k=>DB[k]=DB[k].filter(x=>x.uid!==id));save();render()})}
+function a_coupons(){
+  return `<h1>Coupons</h1><p class="mu">Each coupon belongs to one student and one course. It is created on a student's first approved purchase in a course with a coupon % set.</p>
+  <div class="card tw"><table><tr><th>Code</th><th>Student</th><th>Course</th><th>Discount</th><th>Status</th><th></th></tr>${DB.coupons.map(k=>{const u=user(k.uid),c=course(k.cid);return `<tr><td><b>${esc(k.code)}</b></td><td>${esc(u?u.name:'?')}</td><td>${esc(c?c.name:'?')}</td><td>${k.pct}%</td><td>${k.status==='active'?'<span class="tag t-a">Active</span>':k.status==='held'?'<span class="tag t-p">Reserved</span>':'<span class="tag t-r">Used</span>'}</td><td><button class="btn no sm" onclick="delK('${k.id}')">Revoke</button></td></tr>`}).join('')||'<tr><td colspan="6" class="mu">No coupons issued yet.</td></tr>'}</table></div>`;
+}
+function delK(id){DB.coupons=DB.coupons.filter(k=>k.id!==id);save();render()}
+function a_settings(){
+  return `<div class="card auth" style="max-width:560px"><h2 style="margin-top:0">Settings</h2>
+  <label>InstaPay number</label><input id="si" value="${esc(DB.settings.insta)}">
+  <label>Payment instructions (shown to students)</label><textarea id="sn">${esc(DB.settings.note)}</textarea>
+  <label>Admin password</label><input id="sp" type="text" value="${esc(DB.settings.admin)}">
+  <button class="btn" style="width:100%" onclick="saveSet()">Save settings</button>
+  <hr style="border:0;border-top:1px solid var(--bd);margin:18px 0"><button class="btn no" style="width:100%" onclick="wipe()">⚠ Reset ALL data</button></div>`;
+}
+function saveSet(){const p=val('sp').trim();if(p.length<4)return toast('Password too short');DB.settings.insta=val('si').trim();DB.settings.note=val('sn').trim();DB.settings.admin=p;save();toast('Settings saved ✅')}
+function wipe(){ask('This deletes everything (courses, students, orders). Sure?',()=>{DB.users=[];DB.courses=[];DB.orders=[];DB.access=[];DB.coupons=[];save();go('home')})}
+render();
+</script>
+</body>
+</html>
